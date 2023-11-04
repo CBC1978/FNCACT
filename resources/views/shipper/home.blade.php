@@ -37,7 +37,7 @@
                                <table id="style-1" class="table style-1 dt-table-hover non-hover">
                                    <thead>
                                        <tr>
-                                           <th>Rccm</th>
+                                           <th>Rccms</th>
                                            <th>Raison sociale</th>
                                            <th>Sigle</th>
                                            <th>Activité</th>
