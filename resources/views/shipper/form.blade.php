@@ -360,8 +360,6 @@
             var libelle_product = document.querySelectorAll('#libelle_product');
 
             var items = $("#input_check_import").prop("checked", true);
-            console.log(items);
-
 
             // for(i=0; i < input_checkboxes.length;i++){
             //     data.push(input_checkboxes[i].value);
