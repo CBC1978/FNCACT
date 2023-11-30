@@ -18,11 +18,15 @@ use App\Http\Controllers\auxiliary\auxiliaryController;
 Route::get('/', function () {
     return view('home');
 })->name('home');
+
+
 //Route shipper
 Route::prefix('chargeur/')->name('shipper.')->group(function () {
     Route::get('', [shipperController::class,'index'])->name('home');
-    Route::get('form', [shipperController::class,'store'])->name('store');
-    Route::get('detail', [shipperController::class,'view'])->name('view');
+    Route::get('ajouter', [shipperController::class,'getForm'])->name('getForm');
+    Route::get('detail', [shipperController::class,'getDetail'])->name('getDetail');
+    Route::get('produit', [shipperController::class,'getProduit'])->name('getProduit');
+    Route::post('ajouter-chargeur', [shipperController::class,'storeShipper'])->name('storeShipper');
 });
 
 //Route carrier
