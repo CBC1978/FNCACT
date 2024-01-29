@@ -15,7 +15,7 @@
                 <nav class="breadcrumb-style-one" aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('carrier.home') }}">Transporteur</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Ajouter</li>
+                        <li class="breadcrumb-item active" aria-current="page">Modifier</li>
                     </ol>
                 </nav>
             </div>
@@ -36,7 +36,7 @@
                             </div>
                         </div>
                         <div class="widget-content widget-content-area">
-                            <form class="row g-3 needs-validation" method="post" action="{{ route('carrier.storeCarrier')}}">
+                            <form class="row g-3 needs-validation" method="post" action="{{ route('carrier.updateCarrier')}}">
                                 @csrf
                                 <fieldset>1.Immatriculation
                                     <br/>
@@ -44,7 +44,7 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <label for="validationCustom01" class="form-label">RCCM<span class="text-danger">*</span></label>
-                                            <input type="text" value="{{ old('numero_rccm') }}" class="form-control @error('numero_rccm') is-invalid @enderror" name="numero_rccm" id="numero_rccm" required>
+                                            <input type="text" value="{{ $carrier->numero_rccm }}" class="form-control @error('numero_rccm') is-invalid @enderror" name="numero_rccm" id="numero_rccm" required>
                                             @error('numero_rccm')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
@@ -52,23 +52,23 @@
 
                                         <div class="col-md-4">
                                             <label for="validationCustom02" class="form-label">N°IFU<span class="text-danger">*</span></label>
-                                            <input type="text" value="{{ old('numero_ifu') }}" class="form-control  @error('numero_ifu') is-invalid @enderror" name="numero_ifu" id="numero_ifu"  >
+                                            <input type="text" value="{{ $carrier->numero_ifu }}" class="form-control  @error('numero_ifu') is-invalid @enderror" name="numero_ifu" id="numero_ifu"  >
                                             @error('numero_ifu')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="col-md-4">
                                             <label for="validationCustom03" class="form-label">N° CNSS</label>
-                                            <input type="text" value="{{ old('numero_cnss') }}"  name="numero_cnss" id="numero_cnss" class="form-control" >
+                                            <input type="text" value="{{ $carrier->numero_cnss }}"  name="numero_cnss" id="numero_cnss" class="form-control" >
                                         </div>
 
                                         <div class="col-md-4">
                                             <label for="validationCustom03" class="form-label">N° Licence</label>
-                                            <input type="text" value="{{ old('numero_licence') }}" name="numero_licence" id="numero_licence" class="form-control">
+                                            <input type="text" value="{{ $carrier->numero_licence }}" name="numero_licence" id="numero_licence" class="form-control">
                                         </div>
                                         <div class="col-md-4">
                                             <label for="validationCustom03" class="form-label">Année de création</label>
-                                            <input type="date" value="{{ old('annee_creation') }}" name="annee_creation" id="annee_creation" class="form-control" >
+                                            <input type="date" value="{{ $carrier->annee_creation }}" name="annee_creation" id="annee_creation" class="form-control" >
                                         </div>
                                     </div>
                                 </fieldset>
@@ -80,46 +80,46 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <label for="validationCustom03" class="form-label">Raison sociale<span class="text-danger">*</span></label>
-                                            <input type="text" value="{{ old('raison_sociale') }}" class="form-control @error('raison_sociale') is-invalid @enderror" name="raison_sociale" id="raison_sociale"  required>
+                                            <input type="text" value="{{ $carrier->raison_sociale }}" class="form-control @error('raison_sociale') is-invalid @enderror" name="raison_sociale" id="raison_sociale"  required>
                                             @error('raison_sociale')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="col-md-4">
                                             <label for="validationCustom03" class="form-label">Sigle</label>
-                                            <input type="text" value="{{ old('sigle') }}" class="form-control" name="sigle" id="sigle" >
+                                            <input type="text" value="{{ $carrier->sigle }}" class="form-control" name="sigle" id="sigle" >
                                         </div>
                                         <div class="col-md-4">
                                             <label for="validationCustom03" class="form-label">Boite postale</label>
-                                            <input type="text" value="{{ old('boite_postale') }}" class="form-control" name="boite_postale" id="boite_postale" >
+                                            <input type="text" value="{{ $carrier->boite_postale }}" class="form-control" name="boite_postale" id="boite_postale" >
                                         </div>
                                         <div class="col-md-4">
                                             <label for="validationCustomUsername" class="form-label">Email</label>
                                             <div class="input-group has-validation">
                                                 <span class="input-group-text" >@</span>
-                                                <input type="text" value="{{ old('email') }}" class="form-control" name="email" id="email"  aria-describedby="inputGroupPrepend">
+                                                <input type="text" value="{{ $carrier->email }}" class="form-control" name="email" id="email"  aria-describedby="inputGroupPrepend">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <label for="validationCustom03" class="form-label">Téléphone 1 (Fixe ou Portable)<span class="text-danger">*</span></label>
-                                            <input type="text" value="{{ old('contact_1') }}" class="form-control @error('contact_1') is-invalid @enderror" name="contact_1" id="contact_1" required>
+                                            <input type="text" value="{{ $carrier->contact_1 }}" class="form-control @error('contact_1') is-invalid @enderror" name="contact_1" id="contact_1" required>
                                             @error('contact_1')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="col-md-4">
                                             <label for="validationCustom03" class="form-label">Téléphone 2</label>
-                                            <input type="text" value="{{ old('contact_2') }}" class="form-control" name="contact_2" id="contact_2" >
+                                            <input type="text" value="{{ $carrier->contact_2 }}" class="form-control" name="contact_2" id="contact_2" >
                                         </div>
                                         <div class="col-md-4">
                                             <label for="validationCustom03" class="form-label">Fax</label>
-                                            <input type="text" value="{{ old('fax') }}" class="form-control" name="fax" id="fax" >
+                                            <input type="text" value="{{ $carrier->fax }}" class="form-control" name="fax" id="fax" >
                                         </div>
                                         <div class="col-md-4">
                                             <label for="validationCustom03" class="form-label">Ville<span class="text-danger">*</span></label>
                                             <select class="form-select @error('ville') is-invalid @enderror" name="ville" id="ville" required>
-                                                <option selected disabled>Choisir une option...</option>
                                                 @foreach($villes as $ville)
+                                                    <option value="{{ $carrier->fk_ville->id }}" selected>{{ $carrier->fk_ville->libelle }}</option>
                                                     <option value="{{ $ville->id }}">{{ $ville->libelle }}</option>
                                                 @endforeach
                                             </select>
@@ -129,11 +129,11 @@
                                         </div>
                                         <div class="col-md-4">
                                             <label for="validationCustom03" class="form-label">Adressage</label>
-                                            <input type="text" value="{{ old('adressage') }}" class="form-control" name="adressage" id="adressage" >
+                                            <input type="text" value="{{ $carrier->adressage }}" class="form-control" name="adressage" id="adressage" >
                                         </div>
                                         <div class="col-md-4">
                                             <label for="validationCustom03" class="form-label">Nom du premier responsable</label>
-                                            <input type="text" value="{{ old('nom_responsable') }}" class="form-control" name="nom_responsable" id="nom_responsable" >
+                                            <input type="text" value="{{ $carrier->nom_responsable }}" class="form-control" name="nom_responsable" id="nom_responsable" >
                                         </div>
                                     </div>
                                 </fieldset>
@@ -147,6 +147,7 @@
                                             <select class="form-select @error('statut_juridique') is-invalid @enderror" name="statut_juridique" id="statut_juridique" required>
                                                 <option selected disabled value="">Choisir une option...</option>
                                                 @foreach($statuts as $statut)
+                                                    <option value="{{$carrier->fk_statut_juridique->id}}" selected> {{$carrier->fk_statut_juridique->libelle}} </option>
                                                     <option value="{{$statut->id}}"> {{$statut->libelle}} </option>
                                                 @endforeach
                                             </select>
@@ -164,22 +165,63 @@
                                     <div class="row">
                                         <div class="col-md-4 form-check">
                                             <label for="validationCustom03" class="form-check-label">Vrac solide</label>
-                                            <input type="checkbox" name="vrac_solide"  class="form-check-input" id="vrac_solide" >
+                                            @if(isset($carrier->condition) && !empty($carrier->condition))
+                                                @foreach($carrier->condition as $condition)
+                                                    @if($condition->condition->id == env('VRAC_SOLIDE'))
+                                                        <input type="checkbox" value="true" name="vrac_solide"  class="form-check-input" id="vrac_solide" >
+                                                    @else
+                                                        <input type="checkbox" value="false" name="vrac_solide"  class="form-check-input" id="vrac_solide" >
+                                                    @endif
+                                                @endforeach
+                                            @endif
                                         </div>
                                         <div class="col-md-4  form-check">
                                             <label for="validationCustom03" class="form-check-label">Vrac liquide</label>
-                                            <input type="checkbox" name="vrac_liquide" class="form-check-input" id="vrac_liquide" >
+                                            @if(isset($carrier->condition) && !empty($carrier->condition))
+                                                @foreach($carrier->condition as $condition)
+                                                    @if($condition->condition->id == env('VRAC_LIQUIDE'))
+                                                        <input type="checkbox" value="true" name="vrac_liquide" class="form-check-input" id="vrac_liquide" >
+                                                    @else
+                                                        <input type="checkbox" value="false"  name="vrac_liquide" class="form-check-input" id="vrac_liquide" >
+                                                    @endif
+                                                @endforeach
+                                            @endif
                                         </div>
                                         <div class="col-md-4  form-check">
                                             <label for="validationCustom03" class="form-check-label">Conventionnel</label>
-                                            <input type="checkbox" name="conventionnel" class="form-check-input" id="conventionnel" >
+                                            @if(isset($carrier->condition) && !empty($carrier->condition))
+                                                @foreach($carrier->condition as $condition)
+                                                    @if($condition->condition->id == env('CONVENTIONNEL'))
+                                                        <input type="checkbox" value="true" name="conventionnel" class="form-check-input" id="conventionnel" >
+                                                    @else
+                                                        <input type="checkbox" value="false" name="conventionnel" class="form-check-input" id="conventionnel" >
+                                                    @endif
+                                                @endforeach
+                                            @endif
                                         </div>
                                         <div class="col-md-4  form-check">
                                             <label for="validationCustom03" class="form-check-label">Conteneur</label>
-                                            <input type="checkbox" name="conteneur" class="form-check-input" id="conteneur" >
+                                            @if(isset($carrier->condition) && !empty($carrier->condition))
+                                                @foreach($carrier->condition as $condition)
+                                                    @if($condition->condition->id == env('CONTENEUR'))
+                                                        <input type="checkbox" value="true" name="conteneur" class="form-check-input" id="conteneur" >
+                                                    @else
+                                                        <input type="checkbox" value="false" name="conteneur" class="form-check-input" id="conteneur" >
+                                                    @endif
+                                                @endforeach
+                                            @endif
                                         </div>
                                         <div class="col-md-4  form-check">
                                             <label for="validationCustom03" class="form-check-label">Roulier/Roro</label>
+                                            @if(isset($carrier->condition) && !empty($carrier->condition))
+                                                @foreach($carrier->condition as $condition)
+                                                    @if($condition->condition->id == env('ROULIER'))
+                                                        <input type="checkbox" value="true"  name="roulier" class="form-check-input" id="roulier" >
+                                                    @else
+                                                        <input type="checkbox" value="false"  name="roulier" class="form-check-input" id="roulier" >
+                                                    @endif
+                                                @endforeach
+                                            @endif
                                             <input type="checkbox" name="roulier" class="form-check-input" id="roulier" >
                                         </div>
                                     </div>

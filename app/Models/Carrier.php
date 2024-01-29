@@ -5,11 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Shipper extends Model
+class Carrier extends Model
 {
     use HasFactory;
-
-    protected $table = 'chargeur';
+    protected $table = 'transporteur';
 
     /**
      * The primary key associated with the table.
@@ -27,7 +26,7 @@ class Shipper extends Model
         'numero_rccm',
         'numero_ifu',
         'numero_cnss',
-        'numero_cbc',
+        'numero_licence',
         'annee_creation',
         'raison_sociale',
         'sigle',
@@ -39,28 +38,25 @@ class Shipper extends Model
         'fax',
         'adressage',
         'nom_responsable',
-        'activite_principale',
-        'activite_secondaire',
-        'operation_transport',
         'created_by',
         'updated_by',
         'fk_ville',
         'fk_statut_juridique'
     ];
 
+    public function Conditionnement()
+    {
+        return $this->hasMany(transCondition::class, 'fk_transporteur','id');
+    }
 
     public function ville()
     {
         return $this->belongsTo(Ville::class, 'fk_ville', 'id');
     }
+
     public function statutJuridique()
     {
         return $this->belongsTo(StatutJuridique::class, 'fk_statut_juridique', 'id');
-    }
-
-    public function Product()
-    {
-        return $this->hasMany(ShipperProduct::class, 'fk_chargeur','id');
     }
 
 }

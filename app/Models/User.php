@@ -10,6 +10,7 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+    protected $table = 'utilisateur';
 
     /**
      * The attributes that are mass assignable.
@@ -17,7 +18,14 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'nom',
+        'prenom',
+        'username',
+        'email',
+        'fk_groupe',
+        'password',
+        'created_by',
+        'updated_by',
     ];
 
     /**
@@ -26,15 +34,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function groupe()
+    {
+        return $this->belongsTo(Groupe::class, 'fk_groupe', 'id');
+    }
 }

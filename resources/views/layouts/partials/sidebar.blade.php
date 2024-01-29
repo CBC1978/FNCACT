@@ -28,7 +28,7 @@
                     </div>
                 </a>
             </li>
-            <li class="menu {{ request()->routeIs('shipper.home') ? 'active' : '' }}">
+            <li class="menu {{ request()->routeIs('shipper.home') ? 'active' : '' }}  {{ request()->routeIs('shipper.getForm') ? 'active' : '' }} {{ request()->routeIs('shipper.getFormUpdate') ? 'active' : '' }}">
                 <a href="{{ route('shipper.home') }}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
@@ -37,7 +37,7 @@
                 </a>
             </li>
 
-            <li class="menu {{ request()->routeIs('carrier.home') ? 'active' : '' }}">
+            <li class="menu {{ request()->routeIs('carrier.home') ? 'active' : '' }}{{ request()->routeIs('carrier.getForm') ? 'active' : '' }}">
                 <a href="{{ route('carrier.home') }}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
@@ -55,38 +55,30 @@
                 </a>
             </li>
 
-{{--            <li class="menu {{ request()->routeIs('auxiliary.home') ? 'active' : '' }}">--}}
-{{--                <a href="#auxiliaire" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">--}}
-{{--                    <div class="">--}}
-{{--                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>--}}
-{{--                        <span>Auxiliaires</span>--}}
-{{--                    </div>--}}
-{{--                    <div>--}}
-{{--                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>--}}
-{{--                    </div>--}}
-{{--                </a>--}}
-{{--                <ul class="collapse submenu list-unstyled" id="auxiliaire" data-bs-parent="#accordionExample">--}}
-{{--                    <li>--}}
-{{--                        <a href="./app-invoice-list.html"> List </a>--}}
-{{--                    </li>--}}
-{{--                    <li>--}}
-{{--                        <a href="./app-invoice-preview.html"> Preview </a>--}}
-{{--                    </li>--}}
-{{--                    <li>--}}
-{{--                        <a href="./app-invoice-add.html"> Add </a>--}}
-{{--                    </li>--}}
-{{--                    <li>--}}
-{{--                        <a href="#"> Edit </a>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-{{--            </li>--}}
-            <li class="menu {{ request()->routeIs('tools.home') ? 'active' : '' }}">
-                <a  href="{{ route('tools.home') }}" aria-expanded="false" class="dropdown-toggle">
+            <li class="menu {{ request()->routeIs('tools.home') ? 'active' : '' }} {{ request()->routeIs('user.home') ? 'active' : '' }} {{ request()->routeIs('user.getForm') ? 'active' : '' }}">
+                <a href="#auxiliaire" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
                         <span>Outils</span>
                     </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </div>
                 </a>
+                <ul class="collapse submenu list-unstyled" id="auxiliaire" data-bs-parent="#accordionExample">
+                    <li>
+                        <a href="{{ route('user.home') }}"> Utilisateur </a>
+                    </li>
+                    <li>
+                        <a href="#"> Sous menu 1 </a>
+                    </li>
+                    <li>
+                        <a href="#"> Sous menu 2 </a>
+                    </li>
+                    <li>
+                        <a href="#"> Sous menu 3 </a>
+                    </li>
+                </ul>
             </li>
         </ul>
     </nav>

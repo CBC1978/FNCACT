@@ -7,4 +7,6 @@
 <script src="{{asset('src/plugins/src/waves/waves.min.js')}}"></script>
 <script src="{{ asset('layouts/modern-light-menu/app.js') }}"></script>
 <script src="{{ asset('src/assets/js/custom.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
