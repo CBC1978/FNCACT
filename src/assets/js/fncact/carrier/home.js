@@ -64,7 +64,7 @@ $('#btnDelete').click(function (){
 
     if( data.length  != 0){
         Swal.fire({
-            title: "Voulez vous vraiment supprimez ?",
+             title: "Voulez vous vraiment supprimez ?",
             showDenyButton: true,
             showCancelButton: false,
             confirmButtonText: "Supprimer",
@@ -73,13 +73,13 @@ $('#btnDelete').click(function (){
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
                 data.forEach(item =>{
-                    fetch('/transporteur/supprimer-chargeur/'+item.value)
+                    fetch('/transporteur/supprimer-transporteur/'+item.value)
                         .then( response => response.json() )
                         .then( response => {
                             if(response == 0){
                                 Swal.fire({
                                     title: 'Bravo',
-                                    text: 'Le chargeur a été supprimée avec succès',
+                                    text: 'Le transpoteur a été supprimé avec succès',
                                     icon: 'success',
                                 });
                             } else if( response == 1){

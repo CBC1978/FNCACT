@@ -116,6 +116,10 @@
                                             <input type="text" value="{{ old('fax') }}" class="form-control" name="fax" id="fax" >
                                         </div>
                                         <div class="col-md-4">
+                                            <label for="validationCustom03" class="form-label">Site web</label>
+                                            <input type="text" value="{{ old('site_web') }}" class="form-control" name="site_web" id="site_web" >
+                                        </div>
+                                        <div class="col-md-4">
                                             <label for="validationCustom03" class="form-label">Ville<span class="text-danger">*</span></label>
                                             <select class="form-select @error('ville') is-invalid @enderror" name="ville" id="ville" required>
                                                 <option selected disabled>Choisir une option...</option>
@@ -135,6 +139,7 @@
                                             <label for="validationCustom03" class="form-label">Nom du premier responsable</label>
                                             <input type="text" value="{{ old('nom_responsable') }}" class="form-control" name="nom_responsable" id="nom_responsable" >
                                         </div>
+
                                     </div>
                                 </fieldset>
                                 <br/>

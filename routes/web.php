@@ -49,12 +49,13 @@ Route::prefix('chargeur/')->name('shipper.')->group(function () {
 Route::prefix('transporteur/')->name('carrier.')->group(function () {
     Route::get('', [carrierController::class,'index'])->name('home');
     Route::get('ajouter', [carrierController::class,'getForm'])->name('getForm');
-    Route::post('ajouter-transporteur', [carrierController::class,'storeCarrier'])->name('storeCarrier');
+
     Route::get('modifier/{id}', [carrierController::class,'getFormUpdate'])->name('getFormUpdate');
-    Route::get('detail/{id}', [shipperController::class,'getDetail'])->name('getDetail');
-    Route::post('ajouter-chargeur', [shipperController::class,'storeShipper'])->name('storeShipper');
-    Route::post('modifier-chargeur', [shipperController::class,'updateShipper'])->name('updateShipper');
+    Route::get('detail/{id}', [carrierController::class,'getDetail'])->name('getDetail');
+    Route::post('ajouter-transporteur', [carrierController::class,'storeCarrier'])->name('storeCarrier');
+    Route::post('modifier-transporteur', [carrierController::class,'updateCarrier'])->name('updateCarrier');
     Route::get('detail', [carrierController::class,'view'])->name('view');
+    Route::get('supprimer-transporteur/{id}', [carrierController::class,'deleteCarrier'])->name('deleteCarrier');
 });
 
 //Route auxiliary

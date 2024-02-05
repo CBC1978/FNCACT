@@ -60,6 +60,7 @@
                                         <div class="col-md-4">
                                             <label for="validationCustom03" class="form-label">N° CNSS</label>
                                             <input type="text" value="{{ $carrier->numero_cnss }}"  name="numero_cnss" id="numero_cnss" class="form-control" >
+                                            <input type="hidden" class="form-control " name="id_transporteur" id="id_transporteur" value="{{ $carrier->id}}" >
                                         </div>
 
                                         <div class="col-md-4">
@@ -146,8 +147,8 @@
                                             <label for="validationCustom04" class="form-label">Statut juridique<span class="text-danger">*</span></label>
                                             <select class="form-select @error('statut_juridique') is-invalid @enderror" name="statut_juridique" id="statut_juridique" required>
                                                 <option selected disabled value="">Choisir une option...</option>
-                                                @foreach($statuts as $statut)
-                                                    <option value="{{$carrier->fk_statut_juridique->id}}" selected> {{$carrier->fk_statut_juridique->libelle}} </option>
+                                                <option value="{{$carrier->fk_statut_juridique->id}}" selected> {{$carrier->fk_statut_juridique->libelle}} </option>
+                                                @foreach($statutJuridiques as $statut)
                                                     <option value="{{$statut->id}}"> {{$statut->libelle}} </option>
                                                 @endforeach
                                             </select>
@@ -167,7 +168,7 @@
                                             <label for="validationCustom03" class="form-check-label">Vrac solide</label>
                                             @if(isset($carrier->condition) && !empty($carrier->condition))
                                                 @foreach($carrier->condition as $condition)
-                                                    @if($condition->condition->id == env('VRAC_SOLIDE'))
+                                                    @if($condition->condition->libelle == env('VRAC_SOLIDE'))
                                                         <input type="checkbox" value="true" name="vrac_solide"  class="form-check-input" id="vrac_solide" >
                                                     @else
                                                         <input type="checkbox" value="false" name="vrac_solide"  class="form-check-input" id="vrac_solide" >

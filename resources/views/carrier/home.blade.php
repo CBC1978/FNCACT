@@ -46,7 +46,7 @@
                                     <i class=" fa fa-edit" aria-hidden="true"></i>
                                     Supprimer
                                 </button>
-                                <a href="{{ route('shipper.getForm') }}" type="button" class="btn btn-light-info">
+                                <a href="{{ route('carrier.getForm') }}" type="button" class="btn btn-light-info">
                                     <i class="fa fa-print" aria-hidden="true"></i>
                                     Imprimer
                                 </a>

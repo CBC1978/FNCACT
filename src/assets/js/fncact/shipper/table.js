@@ -90,7 +90,7 @@ $('#btnDelete').click(function (){
                             if(response == 0){
                                 Swal.fire({
                                     title: 'Bravo',
-                                    text: 'Le chargeur a été supprimée avec succès',
+                                    text: 'Le chargeur a été supprimé avec succès',
                                     icon: 'success',
                                 });
                             } else if( response == 1){
