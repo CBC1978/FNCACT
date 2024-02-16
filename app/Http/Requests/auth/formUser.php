@@ -26,7 +26,7 @@ class formUser extends FormRequest
         return [
             'nom'=>'required',
             'prenom'=>'required',
-            'username'=>['required', 'unique:utilisateur'],
+        'username'=>['required', /*'unique:utilisateur'*/],
             'email'=>'required',
             'groupe'=>'required',
             'password'=>['required', 'min:6'],
@@ -46,7 +46,7 @@ class formUser extends FormRequest
             'prenom.required' => 'Le prénom est requis',
             'groupe.required' => 'Le groupe est requis',
             'username.required' => 'Le nom d\'utilisateur est requis',
-            'username.unique' => 'Le nom d\'utilisateur existe déjà',
+            //'username.unique' => 'Le nom d\'utilisateur existe déjà',
             'email.required' => 'L\'emaile est requis',
             'password.required' => 'Le mot de passe requis',
             'password.min' => 'Le mot de passe doit être supérieur à 6 caractères.',

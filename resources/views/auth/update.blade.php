@@ -12,7 +12,7 @@
             <div class="page-meta">
                 <nav class="breadcrumb-style-one" aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('user.home') }}">Utilisateur</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('auth.home') }}">Utilisateur</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Modifier</li>
                     </ol>
                 </nav>
@@ -24,7 +24,7 @@
                         <div class="widget-header">
                             <div class="row">
                                 <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                                    <a href="{{ route('user.home') }}" type="button" class="mt-3 ms-3 btn">
+                                    <a href="{{ route('auth.home') }}" type="button" class="mt-3 ms-3 btn">
                                         <i class="fa fa-arrow-left" aria-hidden="true"></i>
                                         Retour à la liste
                                     </a>
@@ -32,12 +32,13 @@
                             </div>
                         </div>
                         <div class="widget-content widget-content-area">
-                            <form class="row g-3 needs-validation" action="{{ route('user.updateUser') }}"  method="post">
+                            <form class="row g-3 needs-validation" action="{{ route('auth.updateUser') }}"  method="post">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label for="validationCustom01" class="form-label">Nom<span class="text-danger">*</span></label>
                                         <input type="text" value="{{$user->nom}}" class="form-control @error('nom') is-invalid @enderror" name="nom"  id="nom"  required>
+                                        <input type="hidden" class="form-control " name="id_utilisateur" id="id_utilisateur" value="{{ $user->id}}" >
                                         @error('nom')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
@@ -104,4 +105,5 @@
 
 @section('script')
     <script src="{{ asset('src/plugins/src/table/datatable/datatables.js') }}"></script>
+    <script src="{{ asset('src/assets/js/fncact/user/form.js') }}"></script>
 @endsection
