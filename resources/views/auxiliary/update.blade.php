@@ -59,9 +59,9 @@
                                         </div>
 
                                         <div class="col-md-4">
-                                            <label for="validationCustom03" class="form-label">N° CBC</label>
-                                            <input type="text" class="form-control @error('numero_cbc') is-invalid @enderror" name="numero_cbc" id="numero_cbc" value="{{ $auxiliary->numero_cbc}}">
-                                            @error('numero_cbc')
+                                            <label for="validationCustom03" class="form-label">N° agrement</label>
+                                            <input type="text" class="form-control @error('numero_agrement') is-invalid @enderror" name="numero_agrement" id="numero_agrement" value="{{ $auxiliary->numero_agrement}}">
+                                            @error('numero_agrement')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
                                         </div>

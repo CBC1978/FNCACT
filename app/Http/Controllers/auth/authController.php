@@ -4,6 +4,7 @@
 
     use App\Http\Controllers\Controller;
     use App\Http\Requests\auth\formUser;
+    use App\Http\Requests\auth\formUserUpdate;
     use App\Models\Groupe;
     use App\Models\User;
     use Illuminate\Support\Facades\Hash;
@@ -69,7 +70,7 @@ use function PHPUnit\Framework\throwException;
             return view('auth.update', compact('user', 'groupes'));
         }
 
-        public function updateUser(formUser $request){
+        public function updateUser(formUserUpdate $request){
             $request->validated();
             $previousUrl  = app('router')->getRoutes(url()->previous())
                 ->match(app('request')->create(url()->previous()))->getName();
@@ -81,7 +82,7 @@ use function PHPUnit\Framework\throwException;
             $user->username = $request->username;
             $user->email = $request->email;
             $user->fk_groupe = intval($request->groupe);
-            $user->password = $request->password;
+            $user->password = Hash::make( $request->password);
 
             $user->created_by = 1;
             $user->updated_by = 1;

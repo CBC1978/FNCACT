@@ -81,7 +81,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label for="validationCustom03" class="form-label">Mot de passe<span class="text-danger">*</span></label>
-                                        <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password" required>
+                                        <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password" >
                                         @error('password')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
@@ -92,7 +92,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-primary" type="submit">Enregistrer</button>
+                                    <button class="btn btn-primary" id="btnUpdateSave" type="submit">Enregistrer</button>
                                 </div>
                             </form>
                         </div>

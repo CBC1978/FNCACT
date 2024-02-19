@@ -17,7 +17,7 @@ class Auxiliary extends Model
     protected $fillable = [
         'numero_rccm',
         'numero_cnss',
-        'numero_licence',
+        'numero_agrement',
         'numero_ifu',
         'annee_creation',
         'raison_sociale',

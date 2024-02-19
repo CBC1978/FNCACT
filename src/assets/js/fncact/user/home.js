@@ -1,3 +1,5 @@
+const { isEmpty } = require("lodash");
+
 $('#style-1 tr').click(function (event) {
     if (event.target.type !== 'checkbox') {
         $(':checkbox', this).trigger('click');
@@ -14,7 +16,7 @@ $('#btnUpdate').click(function (){
     var checks = document.querySelectorAll('#input_check');
     var data = [];
 
-// Verify if checkboxes are checked
+    // Verify if checkboxes are checked
     checks.forEach(event => {
         if(event.checked){
             data.push(event);
@@ -42,6 +44,16 @@ $('#btnUpdate').click(function (){
         });
     }
 })
+
+/*$('#btnUpdateSave').click(function(){
+    if (password.isEmpty && password==cpassword) {
+        fetch('utilisateur/')
+    }
+    if (condition) {
+
+    }
+
+}); */
 
 $('#btnDelete').click(function (){
     var checks = document.querySelectorAll('#input_check');

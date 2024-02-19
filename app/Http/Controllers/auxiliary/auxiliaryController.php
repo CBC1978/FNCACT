@@ -50,7 +50,7 @@ class auxiliaryController extends Controller
         $auxiliary->numero_ifu =  $request->numero_ifu;
         $auxiliary->numero_cnss = $request->numero_cnss;
         $auxiliary->annee_creation = date("Y", strtotime($request->annee_creation)) ;
-        $auxiliary->numero_licence = $request->numero_licence;
+        $auxiliary->numero_agrement = $request->numero_agrement;
         $auxiliary->raison_sociale = $request->raison_sociale;
         $auxiliary->sigle = $request->sigle;
         $auxiliary->boite_postale = $request->boite_postale;
@@ -96,7 +96,7 @@ class auxiliaryController extends Controller
         $auxiliary->numero_ifu =  $request->numero_ifu;
         $auxiliary->numero_cnss = $request->numero_cnss;
         $auxiliary->annee_creation = date("Y", strtotime($request->annee_creation)) ;
-        $auxiliary->numero_licence = $request->numero_licence;
+        $auxiliary->numero_agrement = $request->numero_agrement;
         $auxiliary->raison_sociale = $request->raison_sociale;
         $auxiliary->sigle = $request->sigle;
         $auxiliary->boite_postale = $request->boite_postale;

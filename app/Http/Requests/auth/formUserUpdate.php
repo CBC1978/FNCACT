@@ -4,7 +4,7 @@ namespace App\Http\Requests\auth;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class formUser extends FormRequest
+class formUserUpdate extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,11 +26,12 @@ class formUser extends FormRequest
         return [
             'nom'=>'required',
             'prenom'=>'required',
-            'username'=>['required', 'unique:utilisateur'],
+            'username'=>'required',
+
             'email'=>'required',
             'groupe'=>'required',
-            'password'=>['required', 'min:6'],
-            'cpassword'=> 'required|same:password|min:6'
+            //'password'=>'min:6',
+            'cpassword'=> 'same:password|min:6',
         ];
     }
 
@@ -46,9 +47,9 @@ class formUser extends FormRequest
             'prenom.required' => 'Le prénom est requis',
             'groupe.required' => 'Le groupe est requis',
             'username.required' => 'Le nom d\'utilisateur est requis',
-            'username.unique' => 'Le nom d\'utilisateur existe déjà',
+            //'username.unique' => 'Le nom d\'utilisateur existe déjà',
             'email.required' => 'L\'emaile est requis',
-            'password.required' => 'Le mot de passe requis',
+            //'password.required' => 'Le mot de passe requis',
             'password.min' => 'Le mot de passe doit être supérieur à 6 caractères.',
             'cpassword.same' => 'Les mots de passe ne sont pas identiques.',
         ];
