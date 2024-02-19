@@ -121,11 +121,23 @@ class carrierController extends Controller
         $carrier->fk_ville = $carrier->ville;
         $carrier->fk_statut_juridique = $carrier->statutJuridique;
         $carrier->condition = $carrier->Conditionnement;
+
         if(isset($carrier->condition) && !empty($carrier->condition)){
-            $carrier->condition->each(function($type){
-                $type->condition = $type->Conditionnement;
-            });
+
+                foreach ($carrier->condition as $type)
+                if ($type->fk_conditionnement == env('VRAC_SOLIDE'))
+                    $carrier->vrac_solide = true;
+                elseif ($type->fk_conditionnement == env('VRAC_LIQUIDE'))
+                    $carrier->vrac_liquide  = true;
+                elseif ($type->fk_conditionnement == env('CONTENEUR'))
+                    $carrier->conteneur  = true;
+                elseif ($type->fk_conditionnement == env('CONVENTIONNEL'))
+                    $carrier->conventionnel  = true;
+                elseif ($type->fk_conditionnement == env('ROULIER'))
+                    $carrier->roulier  = true;
+
         }
+//        dd($carrier);
 
         return view('carrier.update', compact('statutJuridiques', 'villes','carrier'));
 

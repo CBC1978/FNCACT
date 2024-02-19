@@ -84,6 +84,7 @@ $('#btn_add_product_import').click(function (){
             item.checked = false;
     });
     $('.bd-product-modal-import').modal('hide');
+    console.log(data)
 });
 
 $('#wrapper_product_import').on("click","#remove_product", function(e){ //user click on remove text
@@ -93,16 +94,17 @@ $('#wrapper_product_import').on("click","#remove_product", function(e){ //user c
 // End Product Import
 var k=1;
 // Product Export
-var btn_add_product = $('#btn_add_product_export');
 var wrapper_product = $('#wrapper_product_export');
-$(btn_add_product).click(function (){
+$('#btn_add_product_export').click(function (){
 
-    var input_checkboxes = document.querySelectorAll('#input_check');
-    var code_product = document.querySelectorAll('#code_product');
-    var libelle_product = document.querySelectorAll('#libelle_product');
+    var input_checkboxes = document.querySelectorAll('#input_check_export');
+    var code_product = document.querySelectorAll('#code_product_export');
+    var libelle_product = document.querySelectorAll('#libelle_product_export');
 
-    for(i = 0; i< input_checkboxes.length; i++){
+
+    for(var i = 0; i< input_checkboxes.length; i++){
         if(input_checkboxes[i].checked){
+            console.log(i);
             var item = {
                 'id':input_checkboxes[i].value,
                 'code':code_product[i].textContent,

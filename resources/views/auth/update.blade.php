@@ -32,7 +32,7 @@
                             </div>
                         </div>
                         <div class="widget-content widget-content-area">
-                            <form class="row g-3 needs-validation" action="{{ route('auth.updateUser') }}"  method="post">
+                            <form id="formUpdate" class="row g-3 needs-validation" action="{{ route('auth.updateUser') }}"  method="post">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6">

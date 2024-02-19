@@ -1,5 +1,3 @@
-const { isEmpty } = require("lodash");
-
 $('#style-1 tr').click(function (event) {
     if (event.target.type !== 'checkbox') {
         $(':checkbox', this).trigger('click');

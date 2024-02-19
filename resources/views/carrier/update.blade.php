@@ -166,64 +166,43 @@
                                     <div class="row">
                                         <div class="col-md-4 form-check">
                                             <label for="validationCustom03" class="form-check-label">Vrac solide</label>
-                                            @if(isset($carrier->condition) && !empty($carrier->condition))
-                                                @foreach($carrier->condition as $condition)
-                                                    @if($condition->condition->libelle == env('VRAC_SOLIDE'))
-                                                        <input type="checkbox" value="true" name="vrac_solide"  class="form-check-input" id="vrac_solide" >
-                                                    @else
-                                                        <input type="checkbox" value="false" name="vrac_solide"  class="form-check-input" id="vrac_solide" >
-                                                    @endif
-                                                @endforeach
+                                            @if($carrier->vrac_solide)
+                                                <input type="checkbox" checked name="vrac_solide"  class="form-check-input" id="vrac_solide" >
+                                            @else
+                                                <input type="checkbox" name="vrac_solide"  class="form-check-input" id="vrac_solide" >
                                             @endif
                                         </div>
                                         <div class="col-md-4  form-check">
                                             <label for="validationCustom03" class="form-check-label">Vrac liquide</label>
-                                            @if(isset($carrier->condition) && !empty($carrier->condition))
-                                                @foreach($carrier->condition as $condition)
-                                                    @if($condition->condition->id == env('VRAC_LIQUIDE'))
-                                                        <input type="checkbox" value="true" name="vrac_liquide" class="form-check-input" id="vrac_liquide" >
-                                                    @else
-                                                        <input type="checkbox" value="false"  name="vrac_liquide" class="form-check-input" id="vrac_liquide" >
-                                                    @endif
-                                                @endforeach
+                                            @if($carrier->vrac_liquide)
+                                                <input type="checkbox"  name="vrac_liquide" class="form-check-input" checked  id="vrac_liquide" >
+                                            @else
+                                                <input type="checkbox"  name="vrac_liquide" class="form-check-input"  id="vrac_liquide" >
                                             @endif
                                         </div>
                                         <div class="col-md-4  form-check">
                                             <label for="validationCustom03" class="form-check-label">Conventionnel</label>
-                                            @if(isset($carrier->condition) && !empty($carrier->condition))
-                                                @foreach($carrier->condition as $condition)
-                                                    @if($condition->condition->id == env('CONVENTIONNEL'))
-                                                        <input type="checkbox" value="true" name="conventionnel" class="form-check-input" id="conventionnel" >
-                                                    @else
-                                                        <input type="checkbox" value="false" name="conventionnel" class="form-check-input" id="conventionnel" >
-                                                    @endif
-                                                @endforeach
+                                            @if($carrier->conventionnel)
+                                                <input type="checkbox" checked name="conventionnel" class="form-check-input" id="conventionnel" >
+                                            @else
+                                                <input type="checkbox" name="conventionnel" class="form-check-input" id="conventionnel" >
                                             @endif
                                         </div>
                                         <div class="col-md-4  form-check">
                                             <label for="validationCustom03" class="form-check-label">Conteneur</label>
-                                            @if(isset($carrier->condition) && !empty($carrier->condition))
-                                                @foreach($carrier->condition as $condition)
-                                                    @if($condition->condition->id == env('CONTENEUR'))
-                                                        <input type="checkbox" value="true" name="conteneur" class="form-check-input" id="conteneur" >
-                                                    @else
-                                                        <input type="checkbox" value="false" name="conteneur" class="form-check-input" id="conteneur" >
-                                                    @endif
-                                                @endforeach
+                                            @if($carrier->conteneur)
+                                                <input type="checkbox" checked name="conteneur" class="form-check-input" id="conteneur" >
+                                            @else
+                                                <input type="checkbox" name="conteneur" class="form-check-input" id="conteneur" >
                                             @endif
                                         </div>
                                         <div class="col-md-4  form-check">
                                             <label for="validationCustom03" class="form-check-label">Roulier/Roro</label>
-                                            @if(isset($carrier->condition) && !empty($carrier->condition))
-                                                @foreach($carrier->condition as $condition)
-                                                    @if($condition->condition->id == env('ROULIER'))
-                                                        <input type="checkbox" value="true"  name="roulier" class="form-check-input" id="roulier" >
-                                                    @else
-                                                        <input type="checkbox" value="false"  name="roulier" class="form-check-input" id="roulier" >
-                                                    @endif
-                                                @endforeach
+                                            @if($carrier->roulier)
+                                                <input type="checkbox" checked name="roulier" class="form-check-input" id="roulier" >
+                                            @else
+                                                <input type="checkbox" name="roulier" class="form-check-input" id="roulier" >
                                             @endif
-                                            <input type="checkbox" name="roulier" class="form-check-input" id="roulier" >
                                         </div>
                                     </div>
                                 </fieldset>

@@ -71,6 +71,7 @@ use function PHPUnit\Framework\throwException;
         }
 
         public function updateUser(formUserUpdate $request){
+
             $request->validated();
             $previousUrl  = app('router')->getRoutes(url()->previous())
                 ->match(app('request')->create(url()->previous()))->getName();
