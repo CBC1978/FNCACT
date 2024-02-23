@@ -36,12 +36,12 @@
                                 <p>Entrez vos informations de connexion</p>
 
                             </div>
-                            <form action="{{ route('loginUser') }}" method="post">
+                            <form action="{{ route('auth.login') }}" method="post">
                                 @csrf
                                 <div class="col-md-12">
                                     <div class="mb-3">
                                         <label class="form-label">Nom d'utilisateur</label>
-                                        <input type="text" name="username" id="username" class="form-control add-billing-address-input @error('username') is-invalid @enderror">
+                                        <input type="text" name="username" id="username" class="form-control add-billing-address-input @error('username') is-invalid @enderror" required>
                                     </div>
                                     @error('username')
                                     <div class="alert alert-danger">{{ $message }}</div>
@@ -50,7 +50,7 @@
                                 <div class="col-12">
                                     <div class="mb-3">
                                         <label class="form-label">Mot de passe</label>
-                                        <input type="text" name="password" id="password" class="form-control @error('username') is-invalid @enderror">
+                                        <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" required>
                                         @error('password')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror

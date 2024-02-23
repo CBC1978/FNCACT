@@ -19,8 +19,8 @@ use App\Http\Controllers\user\userController;
 */
 
 Route::get('/', function () {
-    return view('home');
-})->name('home');
+    return view('auth.login');
+})->name('login');
 
 //Auth user and authenticate
 Route::prefix('utilisateur/')->name('auth.')->group(function () {
@@ -33,7 +33,6 @@ Route::prefix('utilisateur/')->name('auth.')->group(function () {
     Route::post('ajouter-utilisateur', [authController::class, 'storeUser'])->name('storeUser');
     Route::post('modifier-utilisateur', [authController::class, 'updateUser'])->name('updateUser');
     Route::get('detail', [authController::class,'view'])->name('view');
-
     Route::get('supprimer-utilisateur/{id}', [authController::class,'deleteUser'])->name('deleteUser');
 });
 //End auth user
@@ -55,7 +54,6 @@ Route::prefix('chargeur/')->name('shipper.')->group(function () {
 Route::prefix('transporteur/')->name('carrier.')->group(function () {
     Route::get('', [carrierController::class,'index'])->name('home');
     Route::get('ajouter', [carrierController::class,'getForm'])->name('getForm');
-
     Route::get('modifier/{id}', [carrierController::class,'getFormUpdate'])->name('getFormUpdate');
     Route::get('detail/{id}', [carrierController::class,'getDetail'])->name('getDetail');
     Route::post('ajouter-transporteur', [carrierController::class,'storeCarrier'])->name('storeCarrier');

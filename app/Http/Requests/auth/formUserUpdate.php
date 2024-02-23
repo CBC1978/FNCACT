@@ -27,11 +27,10 @@ class formUserUpdate extends FormRequest
             'nom'=>'required',
             'prenom'=>'required',
             'username'=>'required',
-
             'email'=>'required',
             'groupe'=>'required',
             'password'=>'',
-            'cpassword'=> 'same:password',
+            'cpassword'=> 'same:password',,
         ];
     }
 

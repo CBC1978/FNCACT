@@ -44,6 +44,7 @@ $('#btnUpdate').click(function (){
 })
 
 /*$('#btnUpdateSave').click(function(){
+var olPassword = password
     if (password.isEmpty && password==cpassword) {
         fetch('utilisateur/')
     }

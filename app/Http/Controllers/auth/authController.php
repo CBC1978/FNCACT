@@ -3,7 +3,8 @@
     namespace App\Http\Controllers\auth;
 
     use App\Http\Controllers\Controller;
-    use App\Http\Requests\auth\formUser;
+    use App\Http\Requests\auth\formLogin;
+use App\Http\Requests\auth\formUser;
     use App\Http\Requests\auth\formUserUpdate;
     use App\Models\Groupe;
     use App\Models\User;
@@ -16,15 +17,30 @@ use function PHPUnit\Framework\throwException;
     class authController extends Controller
     {
 
-        public function login()
+        public function getFormLogin()
         {
             return view('auth.login');
 
         }
 
-        public function loginUser()
+        public function login(formLogin $request)
         {
-
+            $validated = $request->validated();
+            //Get username
+            $user = User::whereUsername($request->username)->first();
+            //Verify if username exist
+            if (!empty($user->id)) {
+                //dd([$validated,$user]);
+                //dd('test');
+                if (Hash::check($request->password, $user->password)) {
+                    return view('home');
+                }else {
+                    //dd([$validated,$user]);
+                    return back()->with('fail', "Les mots de passe ne correspondent pas");
+                }
+            }else {
+                return back()->with('fail', "Le nom d'utilisateur n'existe pas");
+            }
         }
 
         public function home()
