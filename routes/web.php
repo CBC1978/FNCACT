@@ -20,7 +20,7 @@ use App\Http\Controllers\user\userController;
 
 Route::get('/', function () {
     return view('auth.login');
-})->name('login');
+})->name('home');
 
 //Auth user and authenticate
 Route::prefix('utilisateur/')->name('auth.')->group(function () {
