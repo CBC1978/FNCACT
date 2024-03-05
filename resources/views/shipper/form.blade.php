@@ -2,7 +2,6 @@
 
 @section('head')
     <link rel="stylesheet" type="text/css" href="{{asset('src/plugins/src/table/datatable/datatables.css')}}">
-
     <link href="{{ asset('src/assets/css/light/components/modal.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 @section('content')

@@ -6,7 +6,7 @@
             <div class="nav-logo">
                 <div class="nav-item theme-logo">
                     <a href="#">
-                        <img src="src/assets/img/logo.svg" class="navbar-logo" alt="logo">
+                        <img src="{{ URL::to('src\assets\img\logo.svg') }}" class="navbar-logo" alt="logo">
                     </a>
                 </div>
                 <div class="nav-item theme-text">
@@ -37,7 +37,7 @@
                 </a>
             </li>
 
-            <li class="menu {{ request()->routeIs('carrier.home') ? 'active' : '' }}{{ request()->routeIs('carrier.getForm') ? 'active' : '' }}">
+            <li class="menu {{ request()->routeIs('carrier.home') ? 'active' : '' }}{{ request()->routeIs('carrier.getForm') ? 'active' : '' }} {{ request()->routeIs('carrier.getFormUpdate') ? 'active' : '' }}">
                 <a href="{{ route('carrier.home') }}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
@@ -46,7 +46,7 @@
                 </a>
             </li>
 
-            <li class="menu {{ request()->routeIs('auxiliary.home') ? 'active' : '' }}">
+            <li class="menu {{ request()->routeIs('auxiliary.home') ? 'active' : '' }} {{ request()->routeIs('auxiliary.getForm') ? 'active' : '' }} {{ request()->routeIs('auxiliary.getFormUpdate') ? 'active' : '' }}">
                 <a href="{{ route('auxiliary.home') }}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
@@ -55,7 +55,7 @@
                 </a>
             </li>
 
-            <li class="menu {{ request()->routeIs('tools.home') ? 'active' : '' }} {{ request()->routeIs('auth.home') ? 'active' : '' }} {{ request()->routeIs('user.getForm') ? 'active' : '' }}">
+            <li class="menu {{ request()->routeIs('tools.home') ? 'active' : '' }} {{ request()->routeIs('auth.home') ? 'active' : '' }} {{ request()->routeIs('auth.getForm') ? 'active' : '' }} {{ request()->routeIs('auth.getFormUpdate') ? 'active' : '' }}">
                 <a href="#auxiliaire" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
@@ -66,7 +66,7 @@
                     </div>
                 </a>
                 <ul class="collapse submenu list-unstyled" id="auxiliaire" data-bs-parent="#accordionExample">
-                    <li class="menu {{ request()->routeIs('auth.home') ? 'active' : '' }}">
+                    <li class="menu {{ request()->routeIs('auth.home') ? 'active' : '' }} {{ request()->routeIs('auth.getForm') ? 'active' : '' }} {{ request()->routeIs('auth.getFormUpdate') ? 'active' : '' }}">
                         <a href="{{ route('auth.home') }}" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" wid th="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
