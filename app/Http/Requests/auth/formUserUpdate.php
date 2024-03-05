@@ -30,7 +30,7 @@ class formUserUpdate extends FormRequest
             'email'=>'required',
             'groupe'=>'required',
             'password'=>'',
-            'cpassword'=> 'same:password',,
+            'cpassword'=> 'same:password',
         ];
     }
 
@@ -48,8 +48,6 @@ class formUserUpdate extends FormRequest
             'username.required' => 'Le nom d\'utilisateur est requis',
             //'username.unique' => 'Le nom d\'utilisateur existe déjà',
             'email.required' => 'L\'emaile est requis',
-            //'password.required' => 'Le mot de passe requis',
-//            'password.min' => 'Le mot de passe doit être supérieur à 6 caractères.',
             'cpassword.same' => 'Les mots de passe ne sont pas identiques.',
         ];
     }

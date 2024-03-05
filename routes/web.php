@@ -18,13 +18,14 @@ use App\Http\Controllers\user\userController;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-})->name('home');
+//Route::get('/',function(){
+//    return redirect()->route('auth.home');
+//})->name('home');
 
 //Auth user and authenticate
+Route::get('/', [authController::class,'getFormLogin'])->name('getFormLogin');
+Route::get('/accueil', [authController::class,'getHome'])->name('getHome');
 Route::prefix('utilisateur/')->name('auth.')->group(function () {
-    Route::get('/login', [authController::class,'login'])->name('login');
     Route::post('connexion', [authController::class, 'login'])->name('login');
     Route::get('', [authController::class,'home'])->name('home');
     Route::get('ajouter', [authController::class, 'getForm'])->name('getForm');
