@@ -20,8 +20,8 @@
             </div>
         </div>
         <ul class="list-unstyled menu-categories" id="accordionExample">
-            <li class="menu  {{ request()->routeIs('home') ? 'active' : '' }}">
-                <a href="{{ route('home') }}" aria-expanded="false" class="dropdown-toggle">
+            <li class="menu  {{ request()->routeIs('getHome') ? 'active' : '' }}">
+                <a href="{{ route('getHome') }}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
                         <span>Accueil</span>
@@ -55,7 +55,7 @@
                 </a>
             </li>
 
-            <li class="menu {{ request()->routeIs('tools.home') ? 'active' : '' }} {{ request()->routeIs('user.home') ? 'active' : '' }} {{ request()->routeIs('user.getForm') ? 'active' : '' }}">
+            <li class="menu {{ request()->routeIs('tools.home') ? 'active' : '' }} {{ request()->routeIs('auth.home') ? 'active' : '' }} {{ request()->routeIs('user.getForm') ? 'active' : '' }}">
                 <a href="#auxiliaire" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
@@ -74,15 +74,15 @@
                             </div>
                         </a>
                     </li>
-                    <li>
-                        <a href="#"> Sous menu 1 </a>
-                    </li>
-                    <li>
-                        <a href="#"> Sous menu 2 </a>
-                    </li>
-                    <li>
-                        <a href="#"> Sous menu 3 </a>
-                    </li>
+{{--                    <li>--}}
+{{--                        <a href="#"> Sous menu 1 </a>--}}
+{{--                    </li>--}}
+{{--                    <li>--}}
+{{--                        <a href="#"> Sous menu 2 </a>--}}
+{{--                    </li>--}}
+{{--                    <li>--}}
+{{--                        <a href="#"> Sous menu 3 </a>--}}
+{{--                    </li>--}}
                 </ul>
             </li>
         </ul>

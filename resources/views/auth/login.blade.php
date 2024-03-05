@@ -11,19 +11,21 @@
 </head>
 <body class="form">
 
-<!-- BEGIN LOADER -->
-<div id="load_screen"> <div class="loader"> <div class="loader-content">
-            <div class="spinner-grow align-self-center"></div>
-        </div></div></div>
-<!--  END LOADER -->
 <div class="auth-container d-flex">
-
     <div class="container mx-auto align-self-center">
         <div class="row">
+
             <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-8 col-12 d-flex flex-column align-self-center mx-auto">
                 <div class="card mt-3 mb-3">
                     <div class="card-body">
                         <div class="row">
+                            @if(Session::has('fail'))
+                                <div class="alert alert-danger"> {{ Session::get('fail') }}</div>
+                            @endif
+
+                            @if(Session::has('success'))
+                                <div class="alert alert-success"> {{ Session::get('success') }}</div>
+                            @endif
                             <div class="col-md-12 mb-3">
                                 <h2>Se connecter</h2>
                                 <p>Entrez vos informations de connexion</p>
@@ -33,7 +35,8 @@
                                 <div class="col-md-12">
                                     <div class="mb-3">
                                         <label class="form-label">Nom d'utilisateur</label>
-                                        <input type="text" name="username" id="username" class="form-control add-billing-address-input @error('username') is-invalid @enderror" required>
+                                        <input type="text" name="username" id="username" value="{{ old('username' ) }}"
+                                               class="form-control  @error('username') is-invalid @enderror" >
                                     </div>
                                     @error('username')
                                     <div class="alert alert-danger">{{ $message }}</div>
@@ -66,6 +69,13 @@
 <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
 <script src="{{ asset('src/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- END GLOBAL MANDATORY SCRIPTS -->
+
+<script>
+    setTimeout(()=>{
+        $("div.alert").remove();
+    },4000)//4s
+
+</script>
 
 </body>
 </html>

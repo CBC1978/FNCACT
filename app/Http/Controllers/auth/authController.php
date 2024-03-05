@@ -4,15 +4,14 @@
 
     use App\Http\Controllers\Controller;
     use App\Http\Requests\auth\formLogin;
-use App\Http\Requests\auth\formUser;
+    use App\Http\Requests\auth\formUser;
     use App\Http\Requests\auth\formUserUpdate;
     use App\Models\Groupe;
     use App\Models\User;
     use Illuminate\Support\Facades\Hash;
     use Illuminate\Foundation\Http\FormRequest;
     use Illuminate\Http\Request;
-
-use function PHPUnit\Framework\throwException;
+    use function PHPUnit\Framework\throwException;
 
     class authController extends Controller
     {
@@ -28,14 +27,12 @@ use function PHPUnit\Framework\throwException;
             $validated = $request->validated();
             //Get username
             $user = User::whereUsername($request->username)->first();
+
             //Verify if username exist
-            if (!empty($user->id)) {
-                //dd([$validated,$user]);
-                //dd('test');
+            if ( ($user) && !empty($user->id)) {
                 if (Hash::check($request->password, $user->password)) {
-                    return view('home');
+                    return redirect()->route('getHome');
                 }else {
-                    //dd([$validated,$user]);
                     return back()->with('fail', "Les mots de passe ne correspondent pas");
                 }
             }else {
@@ -46,11 +43,15 @@ use function PHPUnit\Framework\throwException;
         public function home()
         {
             $users = User::all();
-
             $users->each(function ($user){
                 $user->fk_groupe = $user->groupe;
             });
             return view('auth.home' , compact('users'));
+        }
+
+        public function getHome()
+        {
+            return  view('home');
         }
 
         public function getForm()
@@ -113,8 +114,6 @@ use function PHPUnit\Framework\throwException;
         public function deleteUser($id){
 
             try {
-
-
                 $user = User::find(intval ($id));
 
                 $user->delete();
@@ -124,5 +123,4 @@ use function PHPUnit\Framework\throwException;
                 throwException($e);
             }
         }
-
     }
