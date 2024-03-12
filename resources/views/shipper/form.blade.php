@@ -287,8 +287,8 @@
                                                 @foreach($produits as $produit)
                                                     <tr>
                                                         <td><input type="checkbox" value="{{ $produit->id }}" id="input_check"></td>
-                                                        <td id="code_product">{{ $produit->code }} </td>
-                                                        <td id="libelle_product">{{ $produit->libelle }}</td>
+                                                        <td id="code_product_export">{{ $produit->code }} </td>
+                                                        <td id="libelle_product_export">{{ $produit->libelle }}</td>
                                                     </tr>
                                                 @endforeach
                                                 </tbody>
