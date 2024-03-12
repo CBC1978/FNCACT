@@ -1,8 +1,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-    <title>CORK Admin - Multipurpose Bootstrap Dashboard Template </title>
-    <link rel="icon" type="image/x-icon" href="{{ asset('src/assets/img/favicon.ico') }}"/>
+    <title>FNCACT Fichier National des Chargeurs et des Acteurs de la Chaine de Transport  </title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('src/assets/img/cbc.ico') }}"/>
     <link href="{{ asset('layouts/modern-light-menu/css/light/loader.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('layouts/modern-light-menu/css/dark/loader.css') }}" rel="stylesheet" type="text/css" />
     <script src="{{ asset('layouts/modern-light-menu/loader.js') }}"></script>
