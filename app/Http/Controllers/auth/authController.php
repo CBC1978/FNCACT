@@ -100,7 +100,11 @@
             $user->username = $request->username;
             $user->email = $request->email;
             $user->fk_groupe = intval($request->groupe);
-            $user->password = Hash::make( $request->password);
+            if (empty($request->password)) {
+                $user->password = $user->password;
+            }else{
+                $user->password = Hash::make( $request->password);
+            }
 
             $user->created_by = 1;
             $user->updated_by = 1;
