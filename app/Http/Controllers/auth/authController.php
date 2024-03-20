@@ -22,7 +22,7 @@
 
         }
 
-        public function login(formLogin $request)
+        /*public function login(formLogin $request)
         {
             $validated = $request->validated();
             //Get username
@@ -38,7 +38,38 @@
             }else {
                 return back()->with('fail', "Le nom d'utilisateur n'existe pas");
             }
+        }*/
+        public function login(Request $request)
+        {
+            $request->validate([
+                'username' => ['required', 'string', 'max:255'],
+                'password' => ['required', 'string', 'min:6'],
+            ]);
+            $userId = User::where(['username'=>$request->username])->pluck('id')->first();
+            $user = User::find($userId);
+            if($user){
+                if (Hash::check($request->password, $user->password)){
+                    $request->session()->put('userId', $userId);
+                    $request->session()->put('userId', $user->id);
+                    $request->session()->put('username', $user->username);
+                    $request->session()->put('fk_groupe', $user->fk_groupe);
+                    //dd($request->session()->all());
+                    return redirect()->route('getHome');
+                } else {
+                    return back()->with('fail', "Les mots de passe ne correspondent pas ");
+                }
+            } else {
+                return back()->with('fail', "L'nom dutlisateur n'existe pas ");
+            }
         }
+
+        public function logout(Request $request)
+        {
+           // Auth::logout(); // Déconnecte l'utilisateur
+           $request->session()->flush(); // Vide la session
+           return redirect()->route('getFormLogin'); // Redirige vers la page de connexion
+        }
+
 
         public function home()
         {

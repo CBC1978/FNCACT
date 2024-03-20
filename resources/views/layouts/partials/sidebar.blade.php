@@ -54,7 +54,7 @@
                     </div>
                 </a>
             </li>
-
+            @if(session('fk_groupe')==1)
             <li class="menu {{ request()->routeIs('tools.home') ? 'active' : '' }} {{ request()->routeIs('auth.home') ? 'active' : '' }} {{ request()->routeIs('auth.getForm') ? 'active' : '' }} {{ request()->routeIs('auth.getFormUpdate') ? 'active' : '' }}">
                 <a href="#auxiliaire" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
@@ -66,6 +66,7 @@
                     </div>
                 </a>
                 <ul class="collapse submenu list-unstyled" id="auxiliaire" data-bs-parent="#accordionExample">
+
                     <li class="menu {{ request()->routeIs('auth.home') ? 'active' : '' }} {{ request()->routeIs('auth.getForm') ? 'active' : '' }} {{ request()->routeIs('auth.getFormUpdate') ? 'active' : '' }}">
                         <a href="{{ route('auth.home') }}" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
@@ -74,6 +75,7 @@
                             </div>
                         </a>
                     </li>
+
 {{--                    <li>--}}
 {{--                        <a href="#"> Sous menu 1 </a>--}}
 {{--                    </li>--}}
@@ -85,6 +87,9 @@
 {{--                    </li>--}}
                 </ul>
             </li>
+
+            @endif
+
         </ul>
     </nav>
 </div>

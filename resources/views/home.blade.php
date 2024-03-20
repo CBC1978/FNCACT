@@ -15,6 +15,10 @@
                     <div class="widget widget-six">
                         <div class="widget-heading">
                             <h6 class="">Statistiques</h6>
+                            <h6 class="">@if(session('username'))
+                                <p>Bienvenue, {{ session('username') }}!</p>
+                                @endif
+                            </h6>
                             <div class="task-action">
                                 <div class="dropdown">
                                     <a class="dropdown-toggle" href="#" role="button" id="statistics" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
