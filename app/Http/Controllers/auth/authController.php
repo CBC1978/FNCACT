@@ -39,20 +39,25 @@
                 return back()->with('fail', "Le nom d'utilisateur n'existe pas");
             }
         }*/
-        public function login(Request $request)
+
+
+
+        public function login(formLogin $request)
         {
-            $request->validate([
-                'username' => ['required', 'string', 'max:255'],
-                'password' => ['required', 'string', 'min:6'],
-            ]);
+            $validated = $request->validated();
             $userId = User::where(['username'=>$request->username])->pluck('id')->first();
             $user = User::find($userId);
             if($user){
                 if (Hash::check($request->password, $user->password)){
                     $request->session()->put('userId', $userId);
                     $request->session()->put('userId', $user->id);
+                    $request->session()->put('nom', $user->nom);
+                    $request->session()->put('prenom', $user->prenom);
+                    $request->session()->put('email', $user->email);
                     $request->session()->put('username', $user->username);
                     $request->session()->put('fk_groupe', $user->fk_groupe);
+                    $request->session()->put('created_by', $user->created_by);
+                    $request->session()->put('updated_by', $user->updated_by);
                     //dd($request->session()->all());
                     return redirect()->route('getHome');
                 } else {
@@ -156,6 +161,20 @@
             }
             catch (\Exception $e) {
                 throwException($e);
+            }
+        }
+
+
+        public function profile()
+        {
+            if (session()->has('username')) {
+                $username = session('username');
+                $user = User::where('username', $username)->first(); // Je recherche l'utilisateur par son nom d'utilisateur
+
+                if ($user) {
+                    return view('auth.profile', compact('user'));
+
+                }
             }
         }
     }

@@ -5,7 +5,6 @@ use App\Http\Controllers\shipper\shipperController;
 use App\Http\Controllers\carrier\carrierController;
 use App\Http\Controllers\auxiliary\auxiliaryController;
 use App\Http\Controllers\auth\authController;
-use App\Http\Controllers\user\userController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +35,7 @@ Route::prefix('utilisateur/')->name('auth.')->group(function () {
     Route::get('detail', [authController::class,'view'])->name('view');
     Route::get('supprimer-utilisateur/{id}', [authController::class,'deleteUser'])->name('deleteUser');
     Route::post('/logout', [authController::class, 'logout'])->name('logout');
+    Route::get('profile', [authController::class,'profile'])->name('profile');
 });
 //End auth user
 
