@@ -36,13 +36,13 @@
                             </div>
                         </div>
                         <div class="widget-content widget-content-area">
-                            <form id="formUpdate" class="row g-3 needs-validation" action="{{ route('auth.profile') }}"  method="post">
+                            <form id="formUpdate" class="row g-3 needs-validation" action="{{ route('auth.updateProfile') }}"  method="post">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label for="validationCustom01" class="form-label">Nom<span class="text-danger">*</span></label>
                                         <input type="text" value="{{$user->nom}}" class="form-control @error('nom') is-invalid @enderror" name="nom"  id="nom"  required>
-                                        <input type="hidden" class="form-control " name="id_utilisateur" id="id_utilisateur" value="{{ $user->id}}" >
+                                        <input type="hidden" class="form-control " name="id_utilisateur" id="id_utilisateur" value="{{ session('userId')}}" >
                                         @error('nom')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
@@ -82,11 +82,11 @@
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-primary" id="btnUpdateSave" type="submit">Enregistrer</button>
                                     <a href="{{ route('getHome') }}" type="button" class="mt-3 ms-3 btn">
                                         <i class="fa fa-arrow-left" aria-hidden="true"></i>
                                         Annuler la modification et retourner à la page d'accueil
                                     </a>
+                                    <button class="btn btn-primary" id="btnUpdateSave" type="submit">Enregistrer</button>
                                 </div>
                             </form>
                         </div>

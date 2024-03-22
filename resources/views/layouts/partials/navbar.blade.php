@@ -172,8 +172,10 @@
                                 &#x1F44B;
                             </div>
                             <div class="media-body">
-                                <h5>Shaun Park</h5>
-                                <p>Project Leader</p>
+                                <h5 class="">@if(session('username'))
+                                    <p>{{ session('nom') }} {{ session('prenom') }}</p>
+                                    @endif
+                                </h6>
                             </div>
                         </div>
                     </div>

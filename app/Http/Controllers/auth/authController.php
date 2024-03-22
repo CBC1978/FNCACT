@@ -4,6 +4,7 @@
 
     use App\Http\Controllers\Controller;
     use App\Http\Requests\auth\formLogin;
+    use App\Http\Requests\auth\formProfileUpdate;
     use App\Http\Requests\auth\formUser;
     use App\Http\Requests\auth\formUserUpdate;
     use App\Models\Groupe;
@@ -169,7 +170,7 @@
         {
             if (session()->has('username')) {
                 $username = session('username');
-                $user = User::where('username', $username)->first(); // Je recherche l'utilisateur par son nom d'utilisateur
+                $user = User::where('username', $username)->first(); // Recherche de 'utilisateur par son nom d'utilisateur
 
                 if ($user) {
                     return view('auth.profile', compact('user'));
@@ -177,4 +178,28 @@
                 }
             }
         }
+
+        public function updateProfile(formProfileUpdate $request){
+            $username = session('username');
+            $user = User::where('username', $username)->first();
+            if ($user) {
+                $user->nom = $request->nom;
+                $user->prenom =  $request->prenom;
+                $user->username = $request->username;
+                $user->email = $request->email;
+                if (empty($request->password)) {
+                    $user->password = $user->password;
+                }else{
+                    $user->password = Hash::make( $request->password);
+                }
+
+                $user->created_by = 1;
+                $user->updated_by = 1;
+
+                $user->save();
+            }
+
+            return redirect()->route('auth.profile')->with('success', 'Vos informations sont mise à jour avec succès.');
+        }
+
     }

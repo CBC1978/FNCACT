@@ -36,6 +36,7 @@ Route::prefix('utilisateur/')->name('auth.')->group(function () {
     Route::get('supprimer-utilisateur/{id}', [authController::class,'deleteUser'])->name('deleteUser');
     Route::post('/logout', [authController::class, 'logout'])->name('logout');
     Route::get('profile', [authController::class,'profile'])->name('profile');
+    Route::post('', [authController::class,'updateProfile'])->name('updateProfile');
 });
 //End auth user
 
