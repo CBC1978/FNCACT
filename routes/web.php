@@ -22,11 +22,11 @@ use App\Http\Controllers\auth\authController;
 //})->name('home');
 
 //Auth user and authenticate
+Route::get('/accueil', [authController::class,'getHome'])->name('getHome')->middleware('login');
 Route::get('/', [authController::class,'getFormLogin'])->name('getFormLogin');
-Route::middleware(['login'])->group(function(){
-    Route::get('/accueil', [authController::class,'getHome'])->name('getHome');
-    Route::prefix('utilisateur/')->name('auth.')->group(function () {
-        Route::post('connexion', [authController::class, 'login'])->name('login');
+Route::prefix('utilisateur/')->name('auth.')->group(function () {
+    Route::post('connexion', [authController::class, 'login'])->name('login');
+    Route::middleware(['login'])->group(function(){
         Route::post('/logout', [authController::class, 'logout'])->name('logout');
         Route::get('profile', [authController::class,'profile'])->name('profile');
         Route::post('', [authController::class,'updateProfile'])->name('updateProfile');
@@ -42,8 +42,8 @@ Route::middleware(['login'])->group(function(){
         });
     });
 });
-
 //End auth user
+
 Route::middleware(['login'])->group(function(){
     //Route shipper
     Route::prefix('chargeur/')->name('shipper.')->group(function () {
