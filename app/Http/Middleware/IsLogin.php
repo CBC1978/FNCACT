@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class IsAdmin
+class IsLogin
 {
     /**
      * Handle an incoming request.
@@ -16,10 +16,10 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(session('fk_groupe')==1){
+        if(!empty (session('userId'))){
             return $next($request);
         }else{
-            return back()->with('fail', "Vous n'avez pas les autorisations necessaires");
+            return redirect()->route('getFormLogin')->with('error', 'Vous devez vous connecter pour accéder à cette page.');
         }
     }
 }
