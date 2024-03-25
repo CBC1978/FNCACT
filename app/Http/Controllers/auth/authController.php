@@ -65,7 +65,7 @@
                     return back()->with('fail', "Les mots de passe ne correspondent pas ");
                 }
             } else {
-                return back()->with('fail', "L'nom dutlisateur n'existe pas ");
+                return back()->with('fail', "Le nom d'utlisateur n'existe pas ");
             }
         }
 

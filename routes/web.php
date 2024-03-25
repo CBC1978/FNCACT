@@ -26,17 +26,21 @@ Route::get('/', [authController::class,'getFormLogin'])->name('getFormLogin');
 Route::get('/accueil', [authController::class,'getHome'])->name('getHome');
 Route::prefix('utilisateur/')->name('auth.')->group(function () {
     Route::post('connexion', [authController::class, 'login'])->name('login');
-    Route::get('', [authController::class,'home'])->name('home');
-    Route::get('ajouter', [authController::class, 'getForm'])->name('getForm');
-    Route::get('modifier/{id}', [authController::class,'getFormUpdate'])->name('getFormUpdate');
-    Route::get('detail/{id}', [authController::class,'getDetail'])->name('getDetail');
-    Route::post('ajouter-utilisateur', [authController::class, 'storeUser'])->name('storeUser');
-    Route::post('modifier-utilisateur', [authController::class, 'updateUser'])->name('updateUser');
-    Route::get('detail', [authController::class,'view'])->name('view');
-    Route::get('supprimer-utilisateur/{id}', [authController::class,'deleteUser'])->name('deleteUser');
     Route::post('/logout', [authController::class, 'logout'])->name('logout');
     Route::get('profile', [authController::class,'profile'])->name('profile');
     Route::post('', [authController::class,'updateProfile'])->name('updateProfile');
+    Route::middleware(['admin'])->group(function(){
+        Route::get('', [authController::class,'home'])->name('home');
+        Route::get('ajouter', [authController::class, 'getForm'])->name('getForm');
+        Route::get('modifier/{id}', [authController::class,'getFormUpdate'])->name('getFormUpdate');
+        Route::get('detail/{id}', [authController::class,'getDetail'])->name('getDetail');
+        Route::post('ajouter-utilisateur', [authController::class, 'storeUser'])->name('storeUser');
+        Route::post('modifier-utilisateur', [authController::class, 'updateUser'])->name('updateUser');
+        Route::get('detail', [authController::class,'view'])->name('view');
+        Route::get('supprimer-utilisateur/{id}', [authController::class,'deleteUser'])->name('deleteUser');
+    });
+
+
 });
 //End auth user
 
