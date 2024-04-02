@@ -55,7 +55,7 @@
                 </a>
             </li>
             @if(session('fk_groupe')==1)
-                <li class="menu {{ request()->routeIs('tools.home') ? 'active' : '' }} {{ request()->routeIs('auth.home') ? 'active' : '' }} {{ request()->routeIs('auth.getForm') ? 'active' : '' }} {{ request()->routeIs('auth.getFormUpdate') ? 'active' : '' }}">
+                <li class="menu {{ request()->routeIs('tools.home') ? 'active' : '' }} {{ request()->routeIs('auth.home') ? 'active' : '' }} {{ request()->routeIs('auth.getForm') ? 'active' : '' }} {{ request()->routeIs('auth.getFormUpdate') ? 'active' : '' }} {{ request()->routeIs('groupe.home') ? 'active' : '' }} {{ request()->routeIs('groupe.getForm') ? 'active' : '' }} {{ request()->routeIs('groupe.getFormUpdate') ? 'active' : '' }} ">
                     <a href="#auxiliaire" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <div class="">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
@@ -75,19 +75,20 @@
                                 </div>
                             </a>
                         </li>
+                    </ul>
 
-{{--                        <li>--}}
-{{--                            <a href="#"> Sous menu 1 </a>--}}
-{{--                        </li>--}}
-{{--                        <li>--}}
-{{--                            <a href="#"> Sous menu 2 </a>--}}
-{{--                        </li>--}}
-{{--                        <li>--}}
-{{--                            <a href="#"> Sous menu 3 </a>--}}
-{{--                        </li>--}}
+                    <ul class="collapse submenu list-unstyled" id="auxiliaire" data-bs-parent="#accordionExample">
+
+                        <li class="menu {{ request()->routeIs('groupe.home') ? 'active' : '' }} {{ request()->routeIs('groupe.getForm') ? 'active' : '' }} {{ request()->routeIs('groupe.getFormUpdate') ? 'active' : '' }}">
+                            <a href="{{ route('groupe.home') }}" aria-expanded="false" class="dropdown-toggle">
+                                <div class="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" wid th="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                                    <span>Groupe</span>
+                                </div>
+                            </a>
+                        </li>
                     </ul>
                 </li>
-
             @endif
 
         </ul>

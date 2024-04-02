@@ -5,6 +5,7 @@ use App\Http\Controllers\shipper\shipperController;
 use App\Http\Controllers\carrier\carrierController;
 use App\Http\Controllers\auxiliary\auxiliaryController;
 use App\Http\Controllers\auth\authController;
+use App\Http\Controllers\groupe\groupeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,7 @@ Route::get('/', [authController::class,'getFormLogin'])->name('getFormLogin');
 Route::prefix('utilisateur/')->name('auth.')->group(function () {
     Route::post('connexion', [authController::class, 'login'])->name('login');
     Route::middleware(['login'])->group(function(){
-        Route::post('/logout', [authController::class, 'logout'])->name('logout');
+        Route::get('/logout', [authController::class, 'logout'])->name('logout');
         Route::get('profile', [authController::class,'profile'])->name('profile');
         Route::post('', [authController::class,'updateProfile'])->name('updateProfile');
         Route::middleware(['admin'])->group(function(){
@@ -84,3 +85,17 @@ Route::middleware(['login'])->group(function(){
 });
 
 
+Route::middleware(['login','admin'])->group(function(){
+
+    //Route groupe
+    Route::prefix('groupe/')->name('groupe.')->group(function () {
+        Route::get('', [groupeController::class,'index'])->name('home');
+        Route::get('ajouter', [groupeController::class,'getForm'])->name('getForm');
+        Route::get('modifier/{id}', [groupeController::class,'getFormUpdate'])->name('getFormUpdate');
+        Route::get('detail/{id}', [groupeController::class,'getDetail'])->name('getDetail');
+        Route::post('ajouter-groupe', [groupeController::class,'storeGroupe'])->name('storeGroupe');
+        Route::post('modifier-groupe', [groupeController::class,'updateGroupe'])->name('updateGroupe');
+        Route::get('detail', [groupeController::class,'view'])->name('view');
+        Route::get('supprimer-groupe/{id}', [groupeController::class,'deleteGroupe'])->name('deleteGroupe');
+    });
+});

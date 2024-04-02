@@ -85,7 +85,7 @@ class auxiliaryController extends Controller
         return view('auxiliary.update', compact('statutJuridiques', 'typeAuxiliarys', 'villes','auxiliary'));
     }
 
-    public function updateAuxiliary(FormAuxiliary $request){
+    public function updateAuxiliary(formAuxiliary $request){
         //dd($request);
         $request->validated();
         $previousUrl  = app('router')->getRoutes(url()->previous())
@@ -113,11 +113,6 @@ class auxiliaryController extends Controller
         $auxiliary->updated_by = 1;
 
         $auxiliary->save();
-
-        //dd($auxiliary);
-
-
-
 
         return redirect()->route('auxiliary.home')->with('success', "Les informations sur l'auxiliaire sont modifiées .");
 
