@@ -99,3 +99,7 @@ Route::middleware(['login','admin'])->group(function(){
         Route::get('supprimer-groupe/{id}', [groupeController::class,'deleteGroupe'])->name('deleteGroupe');
     });
 });
+
+Route::get('/stat', function(){
+    return view('stat.stat');
+})->name('stat');

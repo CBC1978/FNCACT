@@ -20,8 +20,8 @@
                <div class="page-meta">
                    <nav class="breadcrumb-style-one" aria-label="breadcrumb">
                        <ol class="breadcrumb">
-                           <li class="breadcrumb-item"><a href="{{ route('groupe.home') }}">Auxiliaire</a></li>
-                           <li class="breadcrumb-item active" aria-current="page">Accueil</li>
+                           <li class="breadcrumb-item"><a href="{{ route('groupe.home') }}">Outils</a></li>
+                           <li class="breadcrumb-item active" aria-current="page">Groupe</li>
                        </ol>
                    </nav>
                </div>
